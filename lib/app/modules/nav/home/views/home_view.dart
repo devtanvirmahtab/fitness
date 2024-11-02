@@ -1,12 +1,13 @@
 import 'package:fitness/app/core/constants/app_constant.dart';
 import 'package:fitness/app/core/constants/app_text_style.dart';
-import 'package:fitness/app/core/constants/asset_constatnts.dart';
+import 'package:fitness/app/core/constants/asset_constants.dart';
 import 'package:fitness/app/core/widgets/horizontal_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/widgets/header_text.dart';
+import '../../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -103,55 +104,60 @@ class HomeView extends GetView<HomeController> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return SizedBox(
-            width: 310,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(23),
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  FittedBox(
-                    fit: BoxFit.cover,
-                    child: Image.asset(welcomeBg),
-                  ),
-                  Container(
-                    color: Colors.black
-                        .withOpacity(0.5), // Adjust opacity as needed
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Lower Body \nTraining",
-                              style: text20Style(isWhiteColor: true),
-                            ),
-                            gapH(20),
-                            iconText(
-                                icon: Icons.local_fire_department,
-                                text: '500 Kcal'),
-                            gapH(15),
-                            iconText(
-                                icon: Icons.access_time_outlined,
-                                text: '500 Kcal'),
-                          ],
-                        ),
-                        const CircleAvatar(
-                          backgroundColor: AppColor.primaryColor,
-                          radius: 25,
-                          child: Icon(
-                            Icons.play_arrow,
-                            color: AppColor.secondaryColor,
-                          ),
-                        )
-                      ],
+          return InkWell(
+            onTap: (){
+              Get.toNamed(Routes.WORKOUT);
+            },
+            child: SizedBox(
+              width: 310,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(23),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    FittedBox(
+                      fit: BoxFit.cover,
+                      child: Image.asset(welcomeBg),
                     ),
-                  )
-                ],
+                    Container(
+                      color: Colors.black
+                          .withOpacity(0.5), // Adjust opacity as needed
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Lower Body \nTraining",
+                                style: text20Style(isWhiteColor: true),
+                              ),
+                              gapH(20),
+                              iconText(
+                                  icon: Icons.local_fire_department,
+                                  text: '500 Kcal'),
+                              gapH(15),
+                              iconText(
+                                  icon: Icons.access_time_outlined,
+                                  text: '500 Kcal'),
+                            ],
+                          ),
+                          const CircleAvatar(
+                            backgroundColor: AppColor.primaryColor,
+                            radius: 25,
+                            child: Icon(
+                              Icons.play_arrow,
+                              color: AppColor.secondaryColor,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           );

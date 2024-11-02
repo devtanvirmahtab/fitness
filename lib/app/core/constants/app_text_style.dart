@@ -12,7 +12,7 @@ final hintStyle = myFont(
 );
 
 TextStyle text12Style({
-  color = AppColor.black,
+  color = AppColor.secondaryColor,
   double fontSize = 12,
   fontWeight = FontWeight.w400,
   isWeight600 = false,
@@ -43,7 +43,7 @@ TextStyle text12Style({
 }
 
 TextStyle text14Style({
-  color = AppColor.black,
+  color = AppColor.secondaryColor,
   double fontSize = 14,
   fontWeight = FontWeight.w400,
   isWeight600 = false,
@@ -74,7 +74,7 @@ TextStyle text14Style({
 }
 
 TextStyle text16Style({
-  color = AppColor.black,
+  color = AppColor.secondaryColor,
   double fontSize = 16,
   fontWeight = FontWeight.w500,
   isWeight600 = false,
@@ -105,7 +105,7 @@ TextStyle text16Style({
 }
 
 TextStyle text18Style({
-  color = AppColor.black,
+  color = AppColor.secondaryColor,
   double fontSize = 18,
   fontWeight = FontWeight.w600,
   isWeight400 = false,
@@ -136,7 +136,7 @@ TextStyle text18Style({
 }
 
 TextStyle text20Style({
-  color = AppColor.black,
+  color = AppColor.secondaryColor,
   double fontSize = 20,
   fontWeight = FontWeight.w800,
   isWeight400 = false,

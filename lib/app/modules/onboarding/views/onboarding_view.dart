@@ -1,5 +1,5 @@
 import 'package:fitness/app/core/constants/app_text_style.dart';
-import 'package:fitness/app/core/constants/asset_constatnts.dart';
+import 'package:fitness/app/core/constants/asset_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -4,11 +4,18 @@ import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 
 class AppButton extends StatelessWidget {
-  const AppButton({super.key, required this.text, required this.onTap});
+  const AppButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.backgroundColor,
+    this.textColor,
+  });
 
   final String text;
   final VoidCallback onTap;
   final double height = 60.0;
+  final Color? backgroundColor,textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,7 @@ class AppButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColor.secondaryColor,
+          backgroundColor: backgroundColor ?? AppColor.secondaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
           ),
@@ -26,7 +33,7 @@ class AppButton extends StatelessWidget {
         child: Text(
           text,
           style: text18Style(
-            color: AppColor.white,
+            color: textColor ?? AppColor.white,
           ),
         ),
       ),

@@ -25,6 +25,7 @@ class AppColor {
   static const secondaryColor = Color(0xFF192126);
   static const liteGray = Color(0xFF8C9093);
   static const mainBg = Color(0xFFF7F6FA);
+  static const cardBg = Color(0xFF384046);
 
   static const secondaryColor2 = Color(0xFFD8EEFF);
   static const purpleColor = Color(0xFF9B4D9D);
