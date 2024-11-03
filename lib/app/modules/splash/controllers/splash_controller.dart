@@ -9,7 +9,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Future.delayed(const Duration(seconds: 1),() {
+      Future.delayed(const Duration(seconds: 2),() {
         Get.offAndToNamed(Routes.ONBOARDING);
       },);
     });

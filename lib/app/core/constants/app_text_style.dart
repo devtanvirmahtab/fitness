@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
-const myFont = GoogleFonts.inter;
+const myFont = GoogleFonts.lato;
 
 final hintStyle = myFont(
   fontSize:  14.0,

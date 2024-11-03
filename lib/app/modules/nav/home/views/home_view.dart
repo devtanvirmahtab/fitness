@@ -3,6 +3,7 @@ import 'package:fitness/app/core/constants/app_text_style.dart';
 import 'package:fitness/app/core/constants/asset_constants.dart';
 import 'package:fitness/app/core/widgets/horizontal_padding.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constants/app_colors.dart';
@@ -29,15 +30,25 @@ class HomeView extends GetView<HomeController> {
               gapH(20),
               const HeaderText(
                 title: 'Popular Workouts',
-              ),
+              ).animate().fadeIn(
+                    delay: 1000.ms,
+                    duration: 500.ms,
+                  ),
               gapH(10),
               popularWorkOut(),
               gapH(20),
               const HeaderText(
                 title: 'Today Plan',
-              ),
+              ).animate().fadeIn(
+                    delay: 1200.ms,
+                    duration: 500.ms,
+                  ),
               gapH(10),
-              todayPlan(),
+              todayPlan().animate().fadeIn(
+                    delay: 1200.ms,
+                    duration: 500.ms,
+                  ),
+              gapH(100),
             ],
           ),
         ),
@@ -62,12 +73,12 @@ class HomeView extends GetView<HomeController> {
                 color: Colors.amber,
               ),
             ],
-          ),
+          ).animate().fadeIn(duration: 500.ms),
           gapH(10),
           Text(
             'Pramuditya Uzumaki',
-            style: text20Style(),
-          ),
+            style: text20Style(fontSize: 24),
+          ).animate().fadeIn(delay: 300.ms, duration: 500.ms),
         ],
       ),
     );
@@ -77,39 +88,42 @@ class HomeView extends GetView<HomeController> {
     return HorizontalPadding(
       child: TextFormField(
         decoration: InputDecoration(
-            border: InputBorder.none,
-            filled: true,
-            fillColor: Colors.white,
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide.none),
-            focusedBorder: OutlineInputBorder(
+          border: InputBorder.none,
+          filled: true,
+          fillColor: Colors.white,
+          enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide.none,
-            ),
-            prefixIcon: const Icon(
-              Icons.search,
-              color: AppColor.liteGray,
-            ),
-            hintText: 'Search',
-            hintStyle: text14Style(color: AppColor.liteGray)),
-      ),
+              borderSide: BorderSide.none),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide.none,
+          ),
+          prefixIcon: const Icon(
+            Icons.search,
+            color: AppColor.liteGray,
+          ),
+          hintText: 'Search',
+          hintStyle: text14Style(
+            color: AppColor.liteGray,
+          ),
+        ),
+      ).animate().fadeIn(delay: 800.ms, duration: 500.ms),
     );
   }
 
   Widget popularWorkOut() {
     return SizedBox(
-      height: 210,
+      height: 212,
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: (){
-              Get.toNamed(Routes.WORKOUT);
+            onTap: () {
+              Get.toNamed(Routes.WORKOUT,);
             },
             child: SizedBox(
-              width: 310,
+              width: 280,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(23),
                 child: Stack(
@@ -117,11 +131,11 @@ class HomeView extends GetView<HomeController> {
                   children: [
                     FittedBox(
                       fit: BoxFit.cover,
-                      child: Image.asset(welcomeBg),
+                      child: Image.asset(image1),
                     ),
                     Container(
                       color: Colors.black
-                          .withOpacity(0.5), // Adjust opacity as needed
+                          .withOpacity(0.4), // Adjust opacity as needed
                     ),
                     Padding(
                       padding: const EdgeInsets.all(20),
@@ -133,16 +147,19 @@ class HomeView extends GetView<HomeController> {
                             children: [
                               Text(
                                 "Lower Body \nTraining",
-                                style: text20Style(isWhiteColor: true),
+                                style: text20Style(
+                                    isWhiteColor: true, fontSize: 22),
                               ),
                               gapH(20),
                               iconText(
-                                  icon: Icons.local_fire_department,
-                                  text: '500 Kcal'),
+                                icon: Icons.local_fire_department,
+                                text: '500 Kcal',
+                              ),
                               gapH(15),
                               iconText(
-                                  icon: Icons.access_time_outlined,
-                                  text: '500 Kcal'),
+                                icon: Icons.access_time_outlined,
+                                text: '500 Kcal',
+                              ),
                             ],
                           ),
                           const CircleAvatar(
@@ -166,7 +183,10 @@ class HomeView extends GetView<HomeController> {
           return gapW(10);
         },
         itemCount: 10,
-      ),
+      ).animate().fadeIn(
+            delay: 1000.ms,
+            duration: 500.ms,
+          ),
     );
   }
 
@@ -199,84 +219,110 @@ class HomeView extends GetView<HomeController> {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return Container(
-          decoration: BoxDecoration(
-              color: AppColor.white, borderRadius: BorderRadius.circular(25)),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(15),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: Image.asset(
-                    welcomeBg,
-                    width: 100,
-                    height: 110,
-                    fit: BoxFit.fitHeight,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
-                          decoration: const BoxDecoration(
-                            color: AppColor.secondaryColor,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(6),
-                              bottomRight: Radius.circular(6),
-                            ),
-                          ),
-                          child: Text(
-                            'Beginner',
-                            style: text14Style(isWhiteColor: true),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        'Sit Up',
-                        style: text18Style(color: AppColor.secondaryColor),
-                      ),
-                      Text(
-                        '20 Sit up a day',
-                        style: text18Style(color: AppColor.liteGray),
-                      ),
-                      gapH(10),
-                      SizedBox(
-                        height: 25,
-                        child: Stack(
-                          children: <Widget>[
-                            SizedBox.expand(
-                              child: LinearProgressIndicator(
-                                borderRadius: BorderRadius.circular(5),
-                                value: 0.75,
-                                backgroundColor: AppColor.mainBg,
-                                valueColor: const AlwaysStoppedAnimation<Color>(AppColor.primaryColor),
-                              ),
-                            ),
-                            Center(child: Text("75%",style: text12Style(),)),
-                          ],
-                        ),
-                      ),
-                      gapH(15),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+        final data = controller.planList[index];
+        return singlePlan(
+          image: data.image,
+          title: data.title,
+          subtitle: data.subtitle,
+          progress: data.progress,
+          type: data.type,
         );
       },
       separatorBuilder: (context, index) {
         return gapH(20);
       },
-      itemCount: 10,
+      itemCount: controller.planList.length,
+    );
+  }
+
+  Widget singlePlan({
+    required String image,
+    required String title,
+    required String subtitle,
+    required String type,
+    required int progress,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColor.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.asset(
+                image,
+                width: 94,
+                height: 94,
+                fit: BoxFit.fitHeight,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.only(right: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 5),
+                      decoration: const BoxDecoration(
+                        color: AppColor.secondaryColor,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(6),
+                          bottomRight: Radius.circular(6),
+                        ),
+                      ),
+                      child: Text(
+                        type,
+                        style: text14Style(isWhiteColor: true),
+                      ),
+                    ),
+                  ),
+                  gapH(10),
+                  Text(
+                    title,
+                    style: text16Style(color: AppColor.secondaryColor),
+                  ),
+                  Text(
+                    subtitle,
+                    style: text14Style(color: AppColor.liteGray),
+                  ),
+                  gapH(10),
+                  SizedBox(
+                    height: 20,
+                    child: Stack(
+                      children: <Widget>[
+                        SizedBox.expand(
+                          child: LinearProgressIndicator(
+                            borderRadius: BorderRadius.circular(5),
+                            value: progress / 100,
+                            backgroundColor: AppColor.mainBg,
+                            valueColor: const AlwaysStoppedAnimation<Color>(
+                                AppColor.primaryColor),
+                          ),
+                        ),
+                        Center(
+                            child: Text(
+                          "$progress%",
+                          style: text12Style(),
+                        )),
+                      ],
+                    ),
+                  ),
+                  gapH(15),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
