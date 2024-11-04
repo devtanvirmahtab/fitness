@@ -14,6 +14,9 @@ flutter pub get
 # Used Packages 
 
  get: ^4.6.6
+ 
  google_fonts: ^6.2.1
+ 
  google_nav_bar: ^5.0.6
+ 
  flutter_animate: ^4.5.0
