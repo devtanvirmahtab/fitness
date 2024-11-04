@@ -15,7 +15,7 @@ TextStyle textRegularStyle({
   bool isTextGrey = false,
   double? lineHeight,
 }) {
-  return GoogleFonts.inter(
+  return GoogleFonts.lato(
     fontSize: fontSize,
     color: isColorWhite
         ? AppColor.white
@@ -37,7 +37,7 @@ TextStyle textHeaderStyle({
   bool isColorPrimary = false,
   double? lineHeight,
 }) {
-  return GoogleFonts.inter(
+  return GoogleFonts.lato(
       fontSize: fontSize,
       color: isColorWhite
           ? AppColor.white
@@ -57,7 +57,7 @@ TextStyle textAppBarStyle({
   bool isPurpleColor = false,
   bool isColorWhite = false,
 }) {
-  return GoogleFonts.inter(
+  return GoogleFonts.lato(
     fontSize: fontSize,
     color: isGrayColor
         ? AppColor.gray
@@ -82,7 +82,7 @@ TextStyle textSemiLargeStyle({
   bool isColorWhite = false,
   double? lineHeight,
 }) {
-  return GoogleFonts.inter(
+  return GoogleFonts.lato(
     fontSize: fontSize,
     color: isGrayColor
         ? AppColor.gray
@@ -109,7 +109,7 @@ TextStyle textSemiRegularStyle({
   bool isTextGrey = false,
   double? lineHeight,
 }) {
-  return GoogleFonts.inter(
+  return GoogleFonts.lato(
     fontSize: fontSize,
     color: isColorWhite
         ? AppColor.white
@@ -136,7 +136,7 @@ TextStyle textSmallStyle({
   bool isTextGrey = false,
   double? lineHeight,
 }) {
-  return GoogleFonts.inter(
+  return GoogleFonts.lato(
     fontSize: fontSize,
     color: isColorWhite
         ? AppColor.white
@@ -165,7 +165,7 @@ TextStyle textButtonStyle({
   );
 }
 
-final hintStyle = GoogleFonts.inter(
+final hintStyle = GoogleFonts.lato(
   fontSize: 14,
   color: AppColor.simpleTextColor,
   fontWeight: FontWeight.w500,
