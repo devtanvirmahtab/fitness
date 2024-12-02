@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:fitness/app/core/constants/app_constant.dart';
 import 'package:fitness/app/core/constants/app_text_style.dart';
 import 'package:fitness/app/core/constants/asset_constants.dart';
@@ -16,40 +18,58 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColor.mainBg,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              gapH(20),
-              grettingAndName(),
-              gapH(20),
-              searchInput(),
-              gapH(20),
-              const HeaderText(
-                title: 'Popular Workouts',
-              ).animate().fadeIn(
-                    delay: 1000.ms,
-                    duration: 500.ms,
-                  ),
-              gapH(10),
-              popularWorkOut(),
-              gapH(20),
-              const HeaderText(
-                title: 'Today Plan',
-              ).animate().fadeIn(
-                    delay: 1200.ms,
-                    duration: 500.ms,
-                  ),
-              gapH(10),
-              todayPlan().animate().fadeIn(
-                    delay: 1200.ms,
-                    duration: 500.ms,
-                  ),
-              gapH(100),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [
+              Colors.purple.withOpacity(0.2),
+              Colors.deepPurpleAccent.withOpacity(0.1),
+              Colors.purple.shade50,
             ],
+          tileMode: TileMode.clamp,begin: Alignment.bottomLeft,
+        ),
+      ),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+        child: Container(
+          // color: AppColor.infoColor.withOpacity(0.5),
+          child: Scaffold(
+            backgroundColor: AppColor.transparent,
+            body: SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    gapH(20),
+                    grettingAndName(),
+                    gapH(20),
+                    searchInput(),
+                    gapH(20),
+                    const HeaderText(
+                      title: 'Popular Workouts',
+                    ).animate().fadeIn(
+                          delay: 1000.ms,
+                          duration: 500.ms,
+                        ),
+                    gapH(10),
+                    popularWorkOut(),
+                    gapH(20),
+                    const HeaderText(
+                      title: 'Today Plan',
+                    ).animate().fadeIn(
+                          delay: 1200.ms,
+                          duration: 500.ms,
+                        ),
+                    gapH(10),
+                    todayPlan().animate().fadeIn(
+                          delay: 1200.ms,
+                          duration: 500.ms,
+                        ),
+                    gapH(100),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -244,8 +264,9 @@ class HomeView extends GetView<HomeController> {
   }) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColor.white,
-        borderRadius: BorderRadius.circular(20),
+          color: AppColor.white.withOpacity(0.4),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: AppColor.white)
       ),
       child: Row(
         children: [
